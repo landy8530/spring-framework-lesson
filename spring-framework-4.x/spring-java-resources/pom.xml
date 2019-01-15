@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.landy</groupId>
+		<artifactId>spring-framework-4.x</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>org.landy</groupId>
+	<artifactId>spring-java-resources</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>spring-java-resources</name>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<!-- The main class to start by executing java -jar -->
+		<!--<start-class>org.landy.springjavaresources.SpringJavaResourcesApplication</start-class>-->
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!--多个main方法的时候需要指定启动方法-->
+				<configuration>
+					<mainClass>org.landy.springjavaresources.SpringJavaResourcesApplication</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<!--<resources>-->
+			<!--<resource>-->
+				<!--<directory>${basedir}/src/main/resources</directory>-->
+				<!--&lt;!&ndash;包含resource的路径&ndash;&gt;-->
+				<!--<includes>-->
+					<!--&lt;!&ndash; basedir：当前module所在的根目录 &ndash;&gt;-->
+					<!--<include>${basedir}</include>-->
+				<!--</includes>-->
+				<!--&lt;!&ndash;排除某个resource的路径&ndash;&gt;-->
+				<!--<excludes>-->
+					<!--<exclude>-->
+						<!--*.properties-->
+					<!--</exclude>-->
+				<!--</excludes>-->
+			<!--</resource>-->
+		<!--</resources>-->
+
+	</build>
+
+</project>

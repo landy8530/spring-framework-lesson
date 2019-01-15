@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+
+    <!--Spring是如何把此处配置的文本值转化为对应相应类型的字段值的？-->
+    <!--通过继承自PropertyEditorSupport的子类进行相应类型值的转化操作-->
+    <bean id="user" class="org.landy.springjavabeans.domain.User">
+        <property name="id" value="1"/>
+        <property name="name" value="Landy"/>
+        <property name="date" value="2017-11-25"/>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="propertyEditorRegistrars">
+            <list>
+                <bean class="org.landy.springjavabeans.spring.MyPropertyEditorRegistrar" />
+            </list>
+        </property>
+    </bean>
+
+</beans>

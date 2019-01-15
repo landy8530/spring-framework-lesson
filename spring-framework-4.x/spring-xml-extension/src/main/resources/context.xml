@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:ehi="http://github.com/landy8530/schema/ehi"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://github.com/landy8530/schema/ehi
+        http://github.com/landy8530/schema/ehi.xsd"
+>
+
+    <!-- bean definitions here -->
+
+    <!-- Schema Namespace : http://www.springframework.org/schema/context-->
+    <!-- prefix:local-element-name = context:component-scan -->
+
+    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >-->
+        <!--<property name="locations">-->
+            <!--<value>application.properties</value>-->
+        <!--</property>-->
+        <!--<property name="fileEncoding" value="UTF-8" />-->
+    <!--</bean>-->
+
+    <!-- context:property-placeholder = PropertyPlaceholderConfigurer ? -->
+    <context:property-placeholder location="classpath:application.properties" file-encoding="UTF-8" />
+    <!-- XML Schema 扩展替代 Bean 配置 -->
+
+    <!--<bean id="user" class="org.landy.springxmlextension.domain.User">-->
+    <!--<property name="id" value="1"/>-->
+    <!--<property name="name" value="${name}" />-->
+    <!--</bean>-->
+
+    <ehi:user bean-name="user1" id="1" name="${name}" />
+    <ehi:user bean-name="user2" id="2" name="Landy" />
+
+</beans>
