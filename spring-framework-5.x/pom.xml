@@ -19,6 +19,7 @@
 
     <modules>
         <module>spring-web-flux</module>
+        <module>spring-webmvc-autoconfig</module>
     </modules>
 
     <properties>
