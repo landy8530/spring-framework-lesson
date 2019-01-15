@@ -142,7 +142,7 @@ java -jar spring-webmvc-autoconfig-1.0-SNAPSHOT-war-exec.jar
 - 实现了自动装配（利用Annotation）
 - 实现了利用jar启动应用程序
 
-- 代码：https://github.com/landy8530/spring-webmvc-autoconfig
+- 代码：https://github.com/landy8530/spring-framework-lesson/tree/master/spring-framework-5.x/spring-webmvc-autoconfig
 
 #### 2.3.4 调试自动装配过程
 
