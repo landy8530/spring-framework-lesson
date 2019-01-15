@@ -18,6 +18,11 @@ public class XmlConfigBootstrap {
         applicationContext.setConfigLocations(
                 "classpath:/META-INF/spring/context.xml");
         //启动方法
+        //如果把“classpath:/META-INF/spring/context.xml”直接当作参数传入ClassPathXmlApplicationContext
+        //则无需手动refresh
+//        ClassPathXmlApplicationContext applicationContext =
+//                new ClassPathXmlApplicationContext("classpath:/META-INF/spring/context.xml");
+
         applicationContext.refresh();
 
         User user = applicationContext.getBean("user", User.class);
