@@ -2,6 +2,7 @@ package org.landy.springwebflux.web;
 
 import org.landy.springwebflux.domain.User;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RouterFunction;
 
 import java.util.Optional;
@@ -15,6 +16,7 @@ import static reactor.core.publisher.Mono.just;
  * Created by Landy on 2019/1/16.
  * Web Flux 配置类型
  */
+@Configuration
 public class WebFluxConfiguration {
 
     //通过 Spring Boot Actuator /beans 来查看 "helloWorldRouterFunction"

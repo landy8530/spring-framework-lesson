@@ -23,4 +23,23 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        String message = "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+
+        println(message);
+
+        return message;
+    }
+
+    public static void println(Object message) {
+        System.out.printf("[Thread : %s ] :  %s \n",
+                Thread.currentThread().getName(),
+                String.valueOf(message)
+        );
+    }
 }
