@@ -20,6 +20,7 @@
     <modules>
         <module>spring-web-flux</module>
         <module>spring-webmvc-autoconfig</module>
+        <module>spring-test-demo</module>
     </modules>
 
     <properties>
