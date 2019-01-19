@@ -48,6 +48,7 @@ public class UserControllerTest {
         // 通过 Mockito Mock UserRemoteService 作为 Spring Bean
         @Bean
         public UserRemoteService userRemoteService() {
+            //Mock代理对象
             UserRemoteService userRemoteService = mock(UserRemoteService.class);
             User user = new User();
             user.setId(1L);

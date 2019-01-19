@@ -43,10 +43,10 @@ public class JUnit5Test {
         System.out.println("HelloWorld2");
     }
 
-    @RepeatedTest(value = 100)
+    @RepeatedTest(value = 5)
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5})
-    public void test100Times(int i) {
-        Assert.assertTrue(i > -1);
+    public void test100Times(int id) {
+        Assert.assertTrue(id > -1);
     }
 }

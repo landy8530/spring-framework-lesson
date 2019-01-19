@@ -27,6 +27,7 @@ public class EnvironmentTest {
     public void testStandardEnvironment(){
         StandardEnvironment environment = new StandardEnvironment();
         System.out.println(environment.getProperty("TMP"));
+        System.out.println(environment.getProperty("path"));
     }
 
 }

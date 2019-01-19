@@ -22,7 +22,9 @@ public class ServletAPITest {
     @Test
     public void testHttpServletRequestInDynamicMock() {
         // 动态代理 HttpServletRequest
+        // JDK版本需要1.8.0_202以上
         HttpServletRequest request= mock(HttpServletRequest.class);
+        System.out.println(request); //Mock for HttpServletRequest, hashCode: 1259174396 可以知道是代理对象
         // 当需要调用 HttpServletRequest#getParameter 时，并且参数名称为"name"
         when(request.getParameter("name")).thenReturn("Landy");
 
