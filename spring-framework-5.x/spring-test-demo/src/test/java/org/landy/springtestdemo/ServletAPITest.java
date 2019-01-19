@@ -24,11 +24,11 @@ public class ServletAPITest {
         // 动态代理 HttpServletRequest
         HttpServletRequest request= mock(HttpServletRequest.class);
         // 当需要调用 HttpServletRequest#getParameter 时，并且参数名称为"name"
-        when(request.getParameter("name")).thenReturn("小马哥");
+        when(request.getParameter("name")).thenReturn("Landy");
 
         String value = request.getParameter("name");
 
-        assertEquals("小马哥",value);
+        assertEquals("Landy",value);
     }
 
     @Test
@@ -36,12 +36,12 @@ public class ServletAPITest {
 
         MockHttpServletRequest request = new MockHttpServletRequest();
 
-        request.setParameter("name","小马哥");
+        request.setParameter("name","Landy");
         // 获取 请求参数
         // 没有 Web 服务，也没有 Tomcat，也没有 Spring Boot
         String value = request.getParameter("name");
 
-        assertEquals("小马哥",value);
+        assertEquals("Landy",value);
     }
 
 }

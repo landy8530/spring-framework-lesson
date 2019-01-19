@@ -33,7 +33,7 @@ public class UserServiceJUnit4Test {
     public void testSave(){
         User user = new User();
         user.setId(1L);
-        user.setName("小马哥");
+        user.setName("Landy");
         // 第一次存，返回true
         assertTrue(userService.save(user));
         // 第二次存相同的内容，返回false

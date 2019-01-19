@@ -35,7 +35,7 @@ public class UserControllerTest {
         // 实际调用时 Mock UserRemoteService Bean
         List<User> users = userController.findAll();
         assertEquals(1, users.size());
-        assertEquals("小马哥", users.get(0).getName());
+        assertEquals("Landy", users.get(0).getName());
     }
 
 
@@ -51,7 +51,7 @@ public class UserControllerTest {
             UserRemoteService userRemoteService = mock(UserRemoteService.class);
             User user = new User();
             user.setId(1L);
-            user.setName("小马哥");
+            user.setName("Landy");
             when(userRemoteService.findAll()).thenReturn(Arrays.asList(user));
             return userRemoteService;
         }
