@@ -8,6 +8,8 @@
 <title>Index</title>
 </head>
 <body>
-    Hello,World
+    Hello,World! <br/>
+    ${message}
+
 </body>
 </html>
