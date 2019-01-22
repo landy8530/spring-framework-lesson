@@ -23,6 +23,7 @@
         <module>spring-test-demo</module>
         <module>servlet-in-spring</module>
         <module>jsp-in-spring</module>
+        <module>jsp-in-spring-boot</module>
     </modules>
 
     <properties>
