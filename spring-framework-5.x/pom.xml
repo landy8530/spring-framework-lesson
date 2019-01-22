@@ -22,6 +22,7 @@
         <module>spring-webmvc-autoconfig</module>
         <module>spring-test-demo</module>
         <module>servlet-in-spring</module>
+        <module>jsp-in-spring</module>
     </modules>
 
     <properties>

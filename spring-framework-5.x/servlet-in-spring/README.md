@@ -59,7 +59,7 @@ https://docs.spring.io/spring/docs/5.1.4.RELEASE/spring-framework-reference/web-
 
    
 
-## 3. Servlet在Spring中的运用
+## 3. Servlet在Spring中的应用
 
 ### 3.1 Dispatcher Servlet
 
