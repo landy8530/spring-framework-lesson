@@ -23,8 +23,9 @@ public class IndexController {
     @RequestMapping("index")
     public String index(@RequestParam(value = "message", required = false) String message, Model model) {
 
-        System.out.println("jsp in spring demo");
+        System.out.println("jsp in spring by annotation demo");
 
+        model.addAttribute("title","jsp in spring by annotation demo");
         model.addAttribute("message",message);
 
         return "index";

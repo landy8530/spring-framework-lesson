@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.landy</groupId>
-    <artifactId>jsp-in-spring</artifactId>
+    <artifactId>jsp-in-spring-xml</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>jsp-in-spring</name>
+    <name>jsp-in-spring-xml</name>
     <packaging>war</packaging>
 
     <properties>
