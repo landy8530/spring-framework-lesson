@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * Index Controller(Application Controller)
  */
-@Controller("/home")
+@Controller
+@RequestMapping("home")
 public class IndexController {
 
-    //http://localhost:8080/index?message=landy
-    @RequestMapping("/index")
+    //http://localhost:8088/home/index?message=landy
+    @RequestMapping("index")
     public String index(@RequestParam(required = false) String message,
                         Model model) {
 
