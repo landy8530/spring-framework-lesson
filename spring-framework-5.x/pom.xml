@@ -24,7 +24,6 @@
         <module>servlet-in-spring</module>
         <module>jsp-in-spring-xml</module>
         <module>jsp-in-spring-annotation</module>
-        <module>jsp-in-spring-boot</module>
     </modules>
 
     <properties>
