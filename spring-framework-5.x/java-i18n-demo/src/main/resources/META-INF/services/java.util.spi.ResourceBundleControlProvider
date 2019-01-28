@@ -1,0 +1,2 @@
+## 配置 java.util.spi.ResourceBundleControlProvider 实现类
+org.landy.javai18ndemo.javase.EncodingResourceBundleControlProvider
