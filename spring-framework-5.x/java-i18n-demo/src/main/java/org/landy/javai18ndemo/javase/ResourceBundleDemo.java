@@ -4,9 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.Locale;
-import java.util.PropertyResourceBundle;
-import java.util.ResourceBundle;
+import java.util.*;
+import java.util.spi.ResourceBundleControlProvider;
 
 /**
  * {@link ResourceBundle} 示例
@@ -45,6 +44,18 @@ public class ResourceBundleDemo {
         // 使用默认 ResourceBundleControlProvider SPI(Service Provider Interface) 机制
         ResourceBundle resourceBundle1 = ResourceBundle.getBundle(baseName);
         System.out.println("resourceBundle.name : " + resourceBundle1.getString("name"));
+
+        ServiceLoader<ResourceBundleControlProvider> operations = ServiceLoader.load(ResourceBundleControlProvider.class);
+        Iterator<ResourceBundleControlProvider> operationIterator = operations.iterator();
+        System.out.println("classPath:"+System.getProperty("java.class.path"));
+        while (operationIterator.hasNext()) {
+            ResourceBundleControlProvider operation = operationIterator.next();
+            System.out.println(operation);
+            System.out.println(operation.getControl(baseName));
+            resourceBundle1 = ResourceBundle.getBundle(baseName,operation.getControl(baseName));
+            System.out.println("resourceBundle.name : " + resourceBundle1.getString("name"));
+        }
+
     }
 
     {
