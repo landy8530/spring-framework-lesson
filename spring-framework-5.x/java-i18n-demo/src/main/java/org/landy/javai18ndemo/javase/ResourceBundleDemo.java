@@ -34,27 +34,30 @@ public class ResourceBundleDemo {
         // native2ascii -> Unicode
         // package（目录） + resource 名称（不包含.properties）
         String baseName = "static.default";
-        // 动态寻找相应语言的配置文件
-//        ResourceBundle resourceBundleLocale = ResourceBundle.getBundle(baseName);
+        //1. 动态寻找相应语言的配置文件
+//        ResourceBundle resourceBundleLocale = ResourceBundle.getBundle(baseName,Locale.ENGLISH);
 //        System.out.println("resourceBundle.name : " + resourceBundleLocale.getString("name"));
         // 基于 Java 1.6
-        // 显示地传递 EncodedControl
-//        ResourceBundle resourceBundle = ResourceBundle.getBundle(baseName,new EncodedControl());
-//        System.out.println("resourceBundle.name : " + resourceBundle.getString("name"));
-        // 使用默认 ResourceBundleControlProvider SPI(Service Provider Interface) 机制
-        ResourceBundle resourceBundle1 = ResourceBundle.getBundle(baseName);
-        System.out.println("resourceBundle.name : " + resourceBundle1.getString("name"));
+        //2. 显示地传递 EncodedControl
+//        ResourceBundle resourceBundle4Control = ResourceBundle.getBundle(baseName,new EncodedControl());
+//        System.out.println("resourceBundle4Control.name : " + resourceBundle4Control.getString("name"));
+        //3. 使用默认 ResourceBundleControlProvider SPI(Service Provider Interface) 机制
+        //注意： 只能把配置文件加载到当前的JVM中才能被加载相应的Provider，加载到当前Application Class Path是会被忽略的。
+        ResourceBundle resourceBundle4SPI = ResourceBundle.getBundle(baseName);
+        System.out.println("resourceBundle4SPI.name : " + resourceBundle4SPI.getString("name"));
 
-        ServiceLoader<ResourceBundleControlProvider> operations = ServiceLoader.load(ResourceBundleControlProvider.class);
-        Iterator<ResourceBundleControlProvider> operationIterator = operations.iterator();
-        System.out.println("classPath:"+System.getProperty("java.class.path"));
-        while (operationIterator.hasNext()) {
-            ResourceBundleControlProvider operation = operationIterator.next();
-            System.out.println(operation);
-            System.out.println(operation.getControl(baseName));
-            resourceBundle1 = ResourceBundle.getBundle(baseName,operation.getControl(baseName));
-            System.out.println("resourceBundle.name : " + resourceBundle1.getString("name"));
-        }
+        //4. SPI 机制原生用法事例
+//        ServiceLoader<ResourceBundleControlProvider> operations = ServiceLoader.load(ResourceBundleControlProvider.class);
+//        Iterator<ResourceBundleControlProvider> operationIterator = operations.iterator();
+//        System.out.println("classPath:"+System.getProperty("java.class.path"));
+//        while (operationIterator.hasNext()) {
+//            ResourceBundleControlProvider operation = operationIterator.next();
+//            System.out.println(operation);
+//            ResourceBundle.Control control = operation.getControl(baseName);
+//            System.out.println(control.getClass().getName());
+//            ResourceBundle resourceBundle = ResourceBundle.getBundle(baseName,control);
+//            System.out.println("resourceBundle.name : " + resourceBundle.getString("name"));
+//        }
 
     }
 
