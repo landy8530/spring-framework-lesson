@@ -25,6 +25,7 @@
         <module>jsp-in-spring-xml</module>
         <module>jsp-in-spring-annotation</module>
         <module>java-i18n-demo</module>
+        <module>reactive-web-demo</module>
     </modules>
 
     <properties>
