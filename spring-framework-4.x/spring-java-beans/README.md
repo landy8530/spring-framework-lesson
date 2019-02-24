@@ -12,8 +12,8 @@
       * [2.3.4 PropertyDescriptor](#234-propertydescriptor)
   * [3. Java Beans事件监听](#3-java-beans事件监听)
     * [3.1 属性变化概念](#31-属性变化概念)
-      * [3.1.1 属性变化监听器（PropertyChangeListener）](#311-属性变化监听器（propertychangelistener）)
-      * [3.1.2 属性变化事件（PropertyChangeEvent）](#312-属性变化事件（propertychangeevent）)
+      * [3.1.1 属性变化监听器（PropertyChangeListener）](#311-属性变化监听器（PropertyChangeListener）)
+      * [3.1.2 属性变化事件（PropertyChangeEvent）](#312-属性变化事件（PropertyChangeEvent）)
     * [3.2 属性事件监听源码解析](#32-属性事件监听源码解析)
   * [4. Spring Beans属性处理](#4-spring-beans属性处理)
 
