@@ -26,32 +26,32 @@ As of Spring Framework 5.0, Spring requires the Java EE 7 level (e.g. Servlet 3.
 
 ### 1. 深入Java之国际化
 
-[深入Java之国际化](java-i18n-demo\README.md) 
+[深入Java之国际化](java-i18n-demo/README.md) 
 
 ### 2. JSP在Spring中的应用(Annotation版)
 
-[JSP在Spring中的应用(Annotation版)](jsp-in-spring-annotation\README.md) 
+[JSP在Spring中的应用(Annotation版)](jsp-in-spring-annotation/README.md) 
 
 ### 3. JSP在Spring中的应用（XML版）
 
-[JSP在Spring中的应用（XML版）](jsp-in-spring-xml\README.md) 
+[JSP在Spring中的应用（XML版）](jsp-in-spring-xml/README.md) 
 
 ### 4. Java Reactive Web设计与实现
 
-[Java Reactive Web设计与实现](reactive-web-demo\README.md) 
+[Java Reactive Web设计与实现](reactive-web-demo/README.md) 
 
 ### 5. Servlet在Spring中的应用
 
-[Servlet在Spring中的应用](servlet-in-spring\README.md) 
+[Servlet在Spring中的应用](servlet-in-spring/README.md) 
 
 ### 6. Spring5新特性之测试
 
-[Spring5新特性之测试](spring-test-demo\README.md) 
+[Spring5新特性之测试](spring-test-demo/README.md) 
 
 ### 7. Spring5新特性之Web Flux
 
-[Spring5新特性之Web Flux](spring-web-flux\README.md) 
+[Spring5新特性之Web Flux](spring-web-flux/README.md) 
 
 ### 8. Spring Web自动装配（Annotation）
 
-[Spring Web自动装配（Annotation）](spring-webmvc-autoconfig\README.md) 
+[Spring Web自动装配（Annotation）](spring-webmvc-autoconfig/README.md) 
