@@ -1,3 +1,25 @@
+# Table of Contents
+
+* [Spring自定义XML配置扩展](#spring自定义xml配置扩展)
+  * [1. Spring XML配置扩展机制](#1-spring-xml配置扩展机制)
+    * [1.1 XML技术简介](#11-xml技术简介)
+    * [1.2 Spring Bean生命周期](#12-spring-bean生命周期)
+    * [1.3 Spring XML配置扩展总结](#13-spring-xml配置扩展总结)
+  * [2. Spring Framework内建实现](#2-spring-framework内建实现)
+    * [2.1 Spring版本对应处理方式](#21-spring版本对应处理方式)
+    * [2.2 Spring 配置placeholder的两种方式](#22-spring-配置placeholder的两种方式)
+      * [2.2.1 利用bean标签配置](#221-利用bean标签配置)
+      * [2.2.2 利用<context:property-placeholder> 标签](#222-利用contextproperty-placeholder-标签)
+      * [2.2.3 两种方式优劣性](#223-两种方式优劣性)
+    * [2.3 Schema配置](#23-schema配置)
+    * [2.4 Namespace Handler配置](#24-namespace-handler配置)
+    * [2.5 Bean解析](#25-bean解析)
+  * [3. 自定义XML配置扩展](#3-自定义xml配置扩展)
+    * [3.1 定义Schema](#31-定义schema)
+    * [3.2 建立META-INF/spring.schemas](#32-建立meta-infspringschemas)
+    * [3.3 添加 ehi.xsd 到 context.xml](#33-添加-ehixsd-到-contextxml)
+    * [3.4 建立META-INF/spring.handlers](#34-建立meta-infspringhandlers)
+
 # Spring自定义XML配置扩展
 
 本文以Spring 4.3.4版本为例

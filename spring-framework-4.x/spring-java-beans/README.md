@@ -1,3 +1,22 @@
+# Table of Contents
+
+* [Java Beans内省机制以及在Spring中的应用](#java-beans内省机制以及在spring中的应用)
+  * [1. 企业级Beans](#1-企业级beans)
+  * [2. Java Beans内省机制](#2-java-beans内省机制)
+    * [2.1 Bean基础](#21-bean基础)
+    * [2.2 Java反射](#22-java反射)
+    * [2.3 内省](#23-内省)
+      * [2.3.1 概念](#231-概念)
+      * [2.3.2 BeanDescriptor](#232-beandescriptor)
+      * [2.3.3 MethodDescriptor](#233-methoddescriptor)
+      * [2.3.4 PropertyDescriptor](#234-propertydescriptor)
+  * [3. Java Beans事件监听](#3-java-beans事件监听)
+    * [3.1 属性变化概念](#31-属性变化概念)
+      * [3.1.1 属性变化监听器（PropertyChangeListener）](#311-属性变化监听器（propertychangelistener）)
+      * [3.1.2 属性变化事件（PropertyChangeEvent）](#312-属性变化事件（propertychangeevent）)
+    * [3.2 属性事件监听源码解析](#32-属性事件监听源码解析)
+  * [4. Spring Beans属性处理](#4-spring-beans属性处理)
+
 # Java Beans内省机制以及在Spring中的应用
 
 ## 1. 企业级Beans
