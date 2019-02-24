@@ -3,17 +3,17 @@
 * [JSP在Spring中的应用](#jsp在spring中的应用)
   * [1. JSP介绍](#1-jsp介绍)
     * [1.1 JSP EL](#11-jsp-el)
-  * [2. 前端控制器模式（Front Controller）](#2-前端控制器模式（front-controller）)
+  * [2. 前端控制器模式（Front Controller）](#2-前端控制器模式Front Controller)
     * [2.1 JSP Front Controller](#21-jsp-front-controller)
     * [2.2 Servlet Front Controller](#22-servlet-front-controller)
   * [3. Spring应用](#3-spring应用)
     * [3.1 Spring注解与xml装配的比较](#31-spring注解与xml装配的比较)
-    * [3.2 Spring Annotation应用（手动装配）](#32-spring-annotation应用（手动装配）)
+    * [3.2 Spring Annotation应用（手动装配）](#32-spring-annotation应用之手动装配)
       * [3.2.1 DispatcherServlet](#321-dispatcherservlet)
       * [3.2.2 InternalResourceViewResolver](#322-internalresourceviewresolver)
       * [3.2.3 @Controller](#323-controller)
       * [3.2.4 运行演示](#324-运行演示)
-    * [3.3 Spring XML应用（手动装配）](#33-spring-xml应用（手动装配）)
+    * [3.3 Spring XML应用（手动装配）](#33-spring-xml应用之手动装配)
       * [3.3.1 DispatcherServlet](#331-dispatcherservlet)
       * [3.3.2 InternalResourceViewResolver](#332-internalresourceviewresolver)
       * [3.3.3 @Controller](#333-controller)
@@ -30,7 +30,7 @@ Expression Language
 - c标签
 - JSTL表达式：Java Standard Taglib Language
 
-## 2. 前端控制器模式（Front Controller）
+## 2. 前端控制器模式Front Controller
 
 关于前端控制器请参考：http://www.corej2eepatterns.com/FrontController.htm
 
@@ -50,7 +50,7 @@ DI是IOC的一种实现方式，是它的一个落地，是一种技术，利用
 
 XML和Annotation没有好与坏，只不过IOC的作用被夸大了而已。
 
-### 3.2 Spring Annotation应用（手动装配）
+### 3.2 Spring Annotation应用之手动装配
 
 Annotation装配：利用注解的方式，就是不需要web.xml,app-context.xml等配置文件了，全部利用注解实现。
 
@@ -172,7 +172,7 @@ mvn clean package
 java -jar jsp-in-spring-annotation-1.0-SNAPSHOT-war-exec.jar
 ```
 
-### 3.3 Spring XML应用（手动装配）
+### 3.3 Spring XML应用之手动装配
 
 配置web.xml
 

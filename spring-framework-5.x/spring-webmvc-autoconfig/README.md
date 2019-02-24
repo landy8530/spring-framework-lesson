@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [Spring Web自动装配（Annotation）](#spring-web自动装配（annotation）)
+* [Spring Web自动装配](#spring-web自动装配)
   * [1. Annotation装配](#1-annotation装配)
     * [替代XML装配](#替代xml装配)
     * [优势](#优势)
@@ -25,7 +25,7 @@
         * [3.3.2.1 注解定义](#3321-注解定义)
         * [3.3.2.2 注解实现](#3322-注解实现)
 
-# Spring Web自动装配（Annotation）
+# Spring Web自动装配
 
 ## 1. Annotation装配
 

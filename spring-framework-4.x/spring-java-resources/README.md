@@ -3,7 +3,7 @@
 * [Java资源管理以及在Spring中的应用](#java资源管理以及在spring中的应用)
   * [1. 资源种类](#1-资源种类)
     * [1.1 文件资源](#11-文件资源)
-    * [1.2 网络资源（Socket）](#12-网络资源（socket）)
+    * [1.2 网络资源（Socket）](#12-网络资源Socket)
     * [1.3 类路径资源](#13-类路径资源)
   * [2. Java URL 协议扩展](#2-java-url-协议扩展)
     * [2.1 URL协议扩展过程](#21-url协议扩展过程)
@@ -63,7 +63,7 @@ public class PropertiesDemo {
 
 
 
-### 1.2 网络资源（Socket）
+### 1.2 网络资源Socket
 
 - HTTP
 - FTP
