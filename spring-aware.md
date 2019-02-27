@@ -1,4 +1,9 @@
-# Spring Aware接口说明
+# Spring Aware接口应用
+
+Aware接口的Bean在被初始之后，可以取得一些相对应的资源。Aware接口本身并不具备什么功能，一般是用于子类继承后，Spring上下文初始化bean的时候会对这个bean传入需要的资源。
+例如ApplicationContextAware接口，可以在Spring初始化实例 Bean的时候，可以通过这个接口将当前的Spring上下文传入。
+
+> 注意：一定要让继承ApplicationContextAware接口的bean被Spring上下文管理，在application.xml文件中定义对应的bean标签，或者使用@Component标注。
 
 ## 1. Aware接口
 
@@ -30,7 +35,7 @@ public interface Aware {
 
 通过如上定义可以知道，这是一个标记接口，继承自这个接口的Bean都可以被通知，通过回调方式方法的特定对象的Spring容器。实际的方法签名由其子接口决定。
 
-### 1.2 接口处理器
+### 1.2 接口处理器(ApplicationContextAware)
 
 所有Aware子接口的处理器由 `org.springframework.context.support.ApplicationContextAwareProcessor` 处理。定义如下：
 
@@ -134,6 +139,12 @@ private void invokeAwareInterfaces(Object bean) {
 ```
 
 ### 1.3 处理器如何被调用？
+
+在AbstractApplicationContext的refresh方法中的prepareBeanFactory(beanFactory);方法。添加了ApplicationContextAwareProcessor处理器，ApplicationContextAwareProcessor是继承了BeanPostProcessor接口。在bean实例化的时候，也就是Spring激活bean的init-method方法的前后，会调用BeanPostProcessor的postProcessBeforeInitialization方法和postProcessAfterInitialization。
+
+在ApplicationContextAwareProcessor我们同样关心这两个方法。在postProcessBeforeInitialization方法中，可以看到会调用invokeAwareInterfaces方法，其中判断了当前初始化bean时候继承了对应的Aware，如果是则调用对应的set方法，传入对应的资源。
+
+> 所有的BeanPostProcessor都将在AbstractAutowireCapableBeanFactory类的initializeBean方法中，通过调用applyBeanPostProcessorsBeforeInitialization方法完成所有实现BeanPostProcessor接口的postProcessBeforeInitialization的调用。
 
 #### 1.3.1 处理器初始化
 
@@ -308,5 +319,85 @@ public class BeanConfigurerSupport implements BeanFactoryAware, InitializingBean
 	private volatile ConfigurableListableBeanFactory beanFactory;
 	.....
 ｝	
+```
+
+## 2. ApplicationContextAware的使用
+
+### 2.1 实现ApplicationContextAware接口
+
+创建一个类实现 这个接口ApplicationContextAware， 在该类中定义ApplicationContext**静态变量** 。并对setApplicationContext方法进行重写。
+
+通过在实现ApplicationContextAware在组件bean初始化的时候传入ApplicationContext，这样可以根据ApplicationContext中的一些数据进行一些自定义的操作，利用如下代码，可以定义一个抽象方法init()由子类实现。通过创建一个实例，用于存储当前初始化的Spring上下文，可以在后续的应用场景中调用。
+
+```java
+public abstract class AbstractApplicationContextHelper implements ApplicationContextAware {
+    protected ApplicationContext applicationContext;
+
+    public AbstractApplicationContextHelper() {
+    }
+
+    public abstract void init();
+
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
+
+    public ApplicationContext accessApplicationContext() {
+        return this.applicationContext;
+    }
+
+}
+```
+
+### 2.2 初始化Spring上下文
+
+比如new ClassPathXmlApplicationContext("spring.xml");
+
+## 3. ApplicationContextAware的应用
+
+ApplicationContextAware的最本质的应用就是：对当前bean传入对应的Spring上下文。
+
+### 3.1 保存Spring上下文
+
+例如上文中的ApplicationContextHelper，专门创建一个Bean，用于维护Spring ApplicationContext。并且可以将ApplicationContextHelper通过@Resource的形式注入到其他组件中。这样相当于为所有的Bean提供可一个操作Spring上下文的工具类。
+
+### 3.2 监听上下文启动，并完成相关操作
+
+通过在实例化的时候，通过上下文调用setApplicationContext方法，然后完成一些自定义的操作。例如加载某些特殊的实例，对bean进行操作等。（比如本文中的init方法）
+
+## 4. 其他Web扩展
+
+在web应用中，还可以添加ServletContextAware，ServletConfigAware。在web项目中，Spring容器的加载是通常是通过XmlWebApplicationContext进行的。
+
+它的父类AbstractRefreshableWebApplicationContext，在postProcessBeanFactory方法中进行了如下操作(postProcessBeanFactory方法被AbstractApplicationContext的refresh方法调用).
+
+**AbstractRefreshableWebApplicationContext.postProcessBeanFactory**
+
+```java
+@Override
+protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+     beanFactory.addBeanPostProcessor(new ServletContextAwareProcessor(this.servletContext, this.servletConfig));
+     beanFactory.ignoreDependencyInterface(ServletContextAware.class);
+     beanFactory.ignoreDependencyInterface(ServletConfigAware.class);
+
+     WebApplicationContextUtils.registerWebApplicationScopes(beanFactory, this.servletContext);
+     WebApplicationContextUtils.registerEnvironmentBeans(beanFactory, this.servletContext, this.servletConfig);
+}
+```
+
+**ServletContextAwareProcessor.postProcessBeforeInitialization**
+
+```java
+@Override
+public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+     if (getServletContext() != null && bean instanceof ServletContextAware) {
+           ((ServletContextAware) bean).setServletContext(getServletContext());
+     }
+     if (getServletConfig() != null && bean instanceof ServletConfigAware) {
+           ((ServletConfigAware) bean).setServletConfig(getServletConfig());
+     }
+     return bean;
+
+}
 ```
 
